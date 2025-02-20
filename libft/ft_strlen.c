@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   engine_source.c                                    :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgermano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 09:05:58 by dgermano          #+#    #+#             */
-/*   Updated: 2025/02/20 16:27:11 by dgermano         ###   ########.fr       */
+/*   Created: 2024/05/21 11:39:47 by dgermano          #+#    #+#             */
+/*   Updated: 2025/01/29 11:13:10 by dgermano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../headers/cub3d.h"
+#include "libft.h"
 
-t_engine	*address_of_engine(const int operation)
+size_t	ft_strlen(const char *s)
 {
-	static t_engine	*engine_addr;
+	size_t	i;
 
-	if (operation == SET_ADDR)
-	{
-		engine_addr = (t_engine *)malloc(sizeof(t_engine));
-		return (engine_addr);
-	}
-	else if (operation == GET_ADDR)
-		if (engine_addr)
-			return (engine_addr);
-	return (NULL);
-}
-
-int	initialize_graphics_resources(t_engine *graphics)
-{
-    
+	i = 0;
+	while (s != NULL && s[i] != '\0')
+		i++;
+	return (i);
 }

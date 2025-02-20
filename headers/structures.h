@@ -6,7 +6,7 @@
 /*   By: dgermano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 09:08:40 by dgermano          #+#    #+#             */
-/*   Updated: 2025/02/20 15:41:22 by dgermano         ###   ########.fr       */
+/*   Updated: 2025/02/20 16:27:23 by dgermano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ typedef struct s_graphic
 
 typedef struct s_engine
 {
-    t_memory        *memory;
+    //t_memory        *memory;
 	t_graphic		*graphics;
 }					t_engine;
 

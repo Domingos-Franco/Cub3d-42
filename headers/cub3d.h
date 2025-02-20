@@ -6,7 +6,7 @@
 /*   By: dgermano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:21:33 by dgermano          #+#    #+#             */
-/*   Updated: 2025/02/20 15:41:26 by dgermano         ###   ########.fr       */
+/*   Updated: 2025/02/20 16:24:38 by dgermano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,13 @@
 # define RIGHT 65363
 
 /* DEFINITION OF REPRESENTATIVE VALUES*/
+# define HEIGTH 800
+# define WIDTH 600
 # define PIXEL 32
 # define SET_ADDR 1
 # define GET_ADDR 0
+# define ERROR_MSG "error \n"
+# define END_LINE "\n"
+# define EMPTY NULL
 
 #endif
