@@ -10,25 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
-
-const char	worldMap[10][10] = {
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1},
-	{1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1},
-	{1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-	{1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
-};
-
-
-
+#include "../headers/cub3d.h"
+int cross_button(void *addr)
+{
+	(void)addr;
+	exit(0);
+	return (0);
+}
 int	main(void)
 {
-	t_engine engine;
+	t_engine *engine;
 
-	engine.connection = mlx_init();
-
+	engine = (t_engine *)malloc(sizeof(t_engine));
+	if(initialize_graphics_resources(engine))
+		return (1);
+	mlx_hook(engine->graphics->x_conection, 17, 1L << 5, cross_button, NULL);
+	mlx_loop(engine->graphics->x_conection);
 	return (0);
 }

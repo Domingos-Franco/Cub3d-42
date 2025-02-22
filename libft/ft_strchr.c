@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dgermano <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dgermano <dgermano@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 09:12:50 by dgermano          #+#    #+#             */
-/*   Updated: 2025/02/20 15:41:25 by dgermano         ###   ########.fr       */
+/*   Created: 2024/05/21 11:37:20 by dgermano          #+#    #+#             */
+/*   Updated: 2024/05/21 11:37:20 by dgermano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-#ifndef FUNCTIONS_H
-# define FUNCTIONS_H
+char	*ft_strchr(const char *s, int c)
+{
+	int	i;
 
-/*ENGINE_SOURCE FUNCTIONS*/
-t_engine	*address_of_engine(const int operation);
-int	initialize_graphics_resources(t_engine *engine);
-
-
-#endif
+	i = -1;
+	while (s[++i] != '\0')
+	{
+		if ((char)s[i] == (char)c)
+			return ((char *)(s + i));
+	}
+	if (s[i] == c)
+		return ((char *)(s + i));
+	return (NULL);
+}

@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   functions.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dgermano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/19 09:12:50 by dgermano          #+#    #+#             */
-/*   Updated: 2025/02/20 15:41:25 by dgermano         ###   ########.fr       */
+/*   Created: 2024/05/21 11:37:35 by dgermano          #+#    #+#             */
+/*   Updated: 2025/01/29 11:37:29 by dgermano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-#ifndef FUNCTIONS_H
-# define FUNCTIONS_H
+char	*ft_strdup(const char *s)
+{
+	size_t		i;
+	char		*str;
 
-/*ENGINE_SOURCE FUNCTIONS*/
-t_engine	*address_of_engine(const int operation);
-int	initialize_graphics_resources(t_engine *engine);
-
-
-#endif
+	if (ft_strlen(s) == 0)
+		return (NULL);
+	str = (char *)malloc(sizeof(*s) * (ft_strlen(s) + 1));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = 0;
+	return (str);
+}

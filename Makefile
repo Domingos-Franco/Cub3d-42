@@ -10,27 +10,45 @@
 #                                                                              #
 # **************************************************************************** #
 
-
 NAME = cub3d
+COMPILER = cc
+CLEANER = rm -rf
+FLAGS = -Wall -Wextra -Werror
 
-SRC = $(NAME).c gnl/get_next_line_utils.c gnl/get_next_line.c map_reading.c controls.c
+# Diretórios e arquivos
+GNL_FILES = get_next_line_utils.c get_next_line.c  
+GNL = $(addprefix gnl/, $(GNL_FILES))
+MANAGE_ENGINE_FILES = engine_source.c raycast.c
+MANAGE_ENGINE = $(addprefix manage_engine/, $(MANAGE_ENGINE_FILES))
 
-OBJ = $(SRC:.c=.o)
+SRC = $(GNL) $(MANAGE_ENGINE)
+OBJ = $(SRC:%.c=%.o)
 
-CC =  cc
+# Bibliotecas e includes
+LIBS = -Lminilibx-linux -Llibft -lft -lmlx -lmlx_Linux -lXext -lX11 -lm -lz 
+INCLUDES = -Iminilibx-linux -Iheaders -Ignl -Ilibft
+
+# Regras principais
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Iminilibx-linux -Lminilibx-linux -Llibft -lft -lmlx -lmlx_Linux -lXext -lX11 -lm -lz -o $(NAME)
-$(OBJ):%.o: %.c
-	@$(CC) -Wall -Wextra -Werror -Iminilibx-linux -O3 -c $< -o $@
+	make -C libft
+	make -C minilibx-linux
+	$(COMPILER) -g $(FLAGS) $(OBJ) $(LIBS) $(INCLUDES) -o $(NAME)
+
+# Regra para criar os objetos
+%.o: %.c
+	$(COMPILER) -g $(FLAGS) $(INCLUDES) -c $< -o $@
+
+# Limpeza
 clean:
-	rm -rf $(OBJ)
+	make fclean -C libft
+	make clean -C minilibx-linux
+	$(CLEANER) $(OBJ)
+
 fclean: clean
-	rm -f $(NAME)
+	$(CLEANER) $(NAME)
+
 re: fclean all
 
 .PHONY: all clean fclean re
-
-	
-
