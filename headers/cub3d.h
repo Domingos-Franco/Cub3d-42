@@ -6,12 +6,12 @@
 /*   By: dgermano <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 10:21:33 by dgermano          #+#    #+#             */
-/*   Updated: 2025/02/20 16:24:38 by dgermano         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:54:53 by dgermano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D
-# define CUB3D
+#ifndef CUB3D_H
+# define CUB3D_H
 
 /* EXTERNAL LIBS*/
 # include <fcntl.h>
